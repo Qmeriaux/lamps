@@ -14,7 +14,6 @@ spec:
       containers:
         - name: lamps
           image: qmeriaux/lamps
-          
 ---
 apiVersion: v1
 kind: Service
