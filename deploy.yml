@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lamps
+spec:
+  selector:
+    matchLabels:
+      app: lamps
+  template:
+    metadata:
+      labels:
+        app: lamps
+    spec:
+      containers:
+        - name: lamps
+          image: qmeriaux/lamps
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lamps-service
+spec:
+  ports:
+    - port: 8000
+      protocol: TCP
+      targetPort: 8000
+  selector:
+    app: lamps

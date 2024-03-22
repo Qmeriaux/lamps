@@ -1,0 +1,8 @@
+<div (click)="toggleLamp(lamp)"
+     [ngClass]="lamp.lampOn ? 'bg-'+lamp.color+' text-black' : 'bg-gray-600 text-white' "
+     class="w-40 h-40 rounded-[50%] hover:rounded-3xl flex items-center justify-center cursor-pointer transition-all ease-in">{{ lamp.lampOn ? 'On' : 'Off' }}
+</div>
+<div class="text-white font-bold text-center">{{ lamp.title }}</div>
+<button (click)="launchTrigger()" class="mx-auto block bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-6 rounded">Remove</button>
+
+<div class="hidden bg-green-500 bg-red-600 bg-yellow-300 bg-purple-800 bg-blue-500 bg-pink-500 bg-sky-900 bg-teal-600"></div>

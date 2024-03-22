@@ -1,0 +1,25 @@
+<div class="flex justify-center items-center fixed pt-20 pb-5 w-full my-auto  bg-gray-800">
+  <input [(ngModel)]="lampName" type="text" placeholder="Enter lamp name" class="bg-gray-600 h-10 text-white px-2 py-1 mr-2 rounded">
+  <select [(ngModel)]="lampColor" class="bg-gray-600 text-white px-2 py-1 mr-2 h-10 rounded">
+    <option value="blue-500">Blue</option>
+    <option value="yellow-300">Yellow</option>
+    <option value="green-500">Green</option>
+    <option value="red-600">Red</option>
+    <option value="purple-800">Purple</option>
+    <option value="pink-500">Pink</option>
+    <option value="sky-900">Sky</option>
+    <option value="teal-600">Teal</option>
+  </select>
+  <button (click)="lampService.addLamp(lampName, lampColor)" class="bg-blue-500 h-10 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded">
+    Click</button>
+</div>
+<div class="flex items-center justify-center min-h-screen gap-3 select-none flex-wrap  bg-gray-800 pb-20 pt-40">
+  <ng-container *ngIf="lampService.getAllLamps().length; else noLamp">
+    <div *ngFor="let lamp of lampService.getAllLamps()" class="border-blue-500 border-4 rounded-2xl p-4">
+      <app-light [lamp]="lamp" (trigger)="handleTrigger(lamp.id)"></app-light>
+    </div>
+  </ng-container>
+  <ng-template #noLamp>
+    <div class="text-white">No lamp created.</div>
+  </ng-template>
+</div>
