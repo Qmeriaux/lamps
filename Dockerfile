@@ -17,7 +17,7 @@ RUN npm install
 COPY . .
 
 # Build the Angular project
-RUN ng build --prod
+RUN ng build
 
 # Stage 2: Serve the Angular app using a simple HTTP server
 FROM node:lts-alpine
